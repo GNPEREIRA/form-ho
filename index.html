@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <title>Levantamento de risco</title>
+</head>
+<body>
+    
+    <div class="container">
+        <form action="">
+            
+            <div>
+                <p class="text-center h3">Identificação de riscos</p>
+            </div>
+             
+            <section>
+                <div>
+                    <h4 class="lead">Empresa</h4>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <h4 class="lead">Setor / GHE</h4>
+                        <input type="text" class="form-control">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <h4 class="lead">Funções Expostas</h4>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-sm-6">
+                        <h4 class="lead">Técnico</h4>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-sm-6">
+                        <h4 class="lead">Data</h4>
+                        <input type="date" class="form-control">
+                    </div>
+                </div><!--fim form-group-->
+            </section>
+            <section>
+                <p class="text-center h3">Características do ambiente</p>
+                
+                <div class="form-group">
+                    <h4 class="lead">Ambiente</h4>
+                    <select name="caracteristicasAmbiente[]" id="caracteristicasAmbiente" class="form-control selectpicker" multiple="true" data-live-search="true">
+                        <option disabled>Selecione a(s) característica(s)</option>
+                        <option value="Sala">Sala</option>
+                        <option value="Galpão">Galpão</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                    <div id="inputOutro"></div>
+                </div>
+
+                <h4 class="lead">Pé direito</h4>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <select name="peDireito[]" id="peDireito" class="form-control selectpicker " multiple="true" data-live-search="true">
+                            <option disabled>Selecione a altura</option>
+                            <option value="2.5">2,5 m</option>
+                            <option value="3.0">3.0 m</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+                    <div id="inputPeDireito" class="col-sm-6"></div>
+                </div>
+
+                <h4 class="lead">Paredes</h4>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <select name="paredes[]" id="paredes" class="form-control selectpicker" multiple="true" data-live-search="true">
+                            <option disabled>Selecione o tipo</option>
+                            <option value="Alvenaria">Alvenaria</option>
+                            <option value="Azulejo">Azulejo</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+                    <div id="inputParedes" class="col-sm-6"></div>
+                </div>
+
+                <h4 class="lead">Piso</h4>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <select name="piso[]" id="piso" class="form-control selectpicker" multiple="true" data-live-search="true">
+                            <option disabled>Selecione o tipo</option>
+                            <option value="Carpete">Carpete</option>
+                            <option value="Cerâmica">Cerâmica</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+                    <div id="inputPiso" class="col-sm-6"></div>
+                </div>
+
+                <h4 class="lead">Cobertura</h4>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <select name="cobertura[]" id="cobertura" class="form-control selectpicker" multiple="true" data-live-search="true">
+                            <option disabled>Selecione o tipo</option>
+                            <option value="Forro madeira">Forro madeira</option>
+                            <option value="Forro PVC">Forro PVC</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+                    <div id="inputCobertura" class="col-sm-6"></div>
+                </div>
+                
+                <h4 class="lead">Ventilação</h4>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <select name="ventilacao[]" id="ventilacao" class="form-control selectpicker" multiple="true" data-live-search="true">
+                            <option disabled>Selecione o tipo</option>
+                            <option value="Artificial">Artificial</option>
+                            <option value="Natural">Natural</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+                    <div id="inputVentilacao" class="col-sm-6"></div>
+                </div>
+                
+                <h4 class="lead">Iluminação</h4>
+                <div class="form-group">
+                    <div>
+                        <select name="iluminacao[]" id="iluminacao" class="form-control selectpicker" multiple="true" data-live-search="true">
+                            <option disabled>Selecione o tipo</option>
+                            <option value="Artificial">Artificial</option>
+                            <option value="Natural">Natural</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <p class="text-center h3">Riscos e perigos</p>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                          <tr><th colspan="3" class="text-center lead">Risco Físico</th></tr>  
+                          <tr>
+                            <th scope="col" class="text-center ">Riscos/Perigos</th>
+                            <th scope="col" class="text-center">Fontes</th>
+                            <th scope="col" class="text-center epi">EPI</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="risco">
+                                <label for="">
+                                    <input type="checkbox" name="" class="checkRisco"> Calor
+                                </label>
+                            </td>
+                            <td><textarea name="" disabled class="fontes"></textarea></td>
+                            <td>
+                                <select name="" class="selectClass">
+                                    <option value=""></option>
+                                    <option value="">A</option>
+                                    <option value="">B</option>
+                                    <option value="">C</option>
+                                </select>
+                                <span class="spanEPI"></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="risco">
+                                <label for="">
+                                    <input type="checkbox" name="" class="checkRisco"> Ruído
+                                </label>
+                            </td>
+                            <td><textarea name="" class="fontes" disabled></textarea></td>
+                            <td>
+                                <select name="" class="selectClass">
+                                    <option value=""></option>
+                                    <option value="">A</option>
+                                    <option value="">B</option>
+                                    <option value="">C</option>
+                                </select>
+                                <span class="spanEPI"></span>
+                            </td>
+                          </tr>
+                          <tr>                          
+                            <td class="risco">
+                                <label for="">
+                                    <input type="checkbox" name="" class="checkRisco"> Radiação não-ionizante
+                                </label>
+                            </td>
+                            <td><textarea name="" class="fontes" disabled></textarea></td>
+                            <td>
+                                <select name="" class="selectClass">
+                                    <option value=""></option>
+                                    <option value="">A</option>
+                                    <option value="">B</option>
+                                    <option value="">C</option>
+                                </select>
+                                <span class="spanEPI"></span>
+                            </td>
+                          </tr>
+                          <tr>                          
+                            <td class="risco">
+                                <label for="">
+                                    <input type="checkbox" name="" class="checkRisco"> Radiação ionizante
+                                </label>
+                            </td>
+                            <td><textarea name="" class="fontes" disabled></textarea></td>
+                            <td>
+                                <select name="" class="selectClass">
+                                    <option value=""></option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                </select>
+                                <span class="spanEPI"></span>
+                            </td>
+                          </tr>
+                          <tr>                          
+                            <td class="risco">
+                                <label for="">
+                                    <input type="checkbox" name="" class="checkRisco"> Vibração de mãos e braços
+                                </label>
+                            </td>
+                            <td><textarea name="" class="fontes" disabled></textarea></td>
+                            <td>
+                                <select name="" id="">
+                                    <option value=""></option>
+                                    <option value="">A</option>
+                                    <option value="">B</option>
+                                    <option value="">C</option>
+                                </select>
+                                <span class="spanEPI"></span>
+                            </td>
+                          </tr>
+                        </tbody>
+                    </table> 
+                </div>
+            </section>
+        </form>
+    </div>
+    <script src="script.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script> 
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script> 
+</body>
+</html>

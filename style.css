@@ -1,0 +1,68 @@
+section{
+    border: 1px solid lightblue;
+    border-radius: 7px;
+    padding: 20px 10px;
+    margin-bottom: 15px;
+    background: rgb(140, 208, 231);
+}
+
+.form-check label{
+    margin-right: 20px;
+}
+
+.inputOutro{
+    margin-top: 15px;
+}
+
+.no-spin-buttons::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+  
+.no-spin-buttons {
+-moz-appearance: textfield;
+}
+
+textarea{
+    width: 100%;
+}
+
+.ca{
+    width: 80px;
+}
+
+.risco{
+
+}
+
+h4{
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+table{
+    margin-top: 15px;
+}
+
+td select{
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .table .risco {
+        width: 20%; /* Reduz o tamanho da coluna 'Perigo/Risco' */
+    }
+    .table .fontes {
+        width: 100%; /* Ajusta largura da coluna 'Fontes' */
+    }
+    .table .epi {
+        width: 30%; /* Aumenta o tamanho da coluna 'EPI' */
+    }
+    .table th, .table td {
+        font-size: 12px; /* Diminui o tamanho do texto em telas pequenas */
+    }
+}
+
+.spanEPI input {
+    max-width: 60px; /* Limita a largura do campo C.A. */
+}
