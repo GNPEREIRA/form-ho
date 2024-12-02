@@ -1,9 +1,13 @@
-section{
+body{
+    margin-top: 20px;
+}
+
+fieldset{
     border: 1px solid lightblue;
-    border-radius: 7px;
+    border-radius: 10px;
     padding: 20px 10px;
     margin-bottom: 15px;
-    background: rgb(140, 208, 231);
+    background: rgb(235, 241, 243);
 }
 
 .form-check label{
@@ -29,10 +33,6 @@ textarea{
 
 .ca{
     width: 80px;
-}
-
-.risco{
-
 }
 
 h4{
@@ -64,5 +64,9 @@ td select{
 }
 
 .spanEPI input {
-    max-width: 60px; /* Limita a largura do campo C.A. */
+    max-width: 100%; /* Limita a largura do campo C.A. */
+}
+
+button{
+    margin-bottom: 50px;
 }

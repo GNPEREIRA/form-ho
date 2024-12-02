@@ -9,6 +9,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <!--Efeitos tabelas-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <link rel="stylesheet" href="style.css">
     <title>Levantamento de risco</title>
 </head>
@@ -16,230 +19,665 @@
     
     <div class="container">
         <form action="">
-            
-            <div>
-                <p class="text-center h3">Identificação de riscos</p>
-            </div>
              
             <section>
-                <div>
-                    <h4 class="lead">Empresa</h4>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <h4 class="lead">Setor / GHE</h4>
-                        <input type="text" class="form-control">
-                    </div>
-
-                    <div class="col-sm-6">
-                        <h4 class="lead">Funções Expostas</h4>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-sm-6">
-                        <h4 class="lead">Técnico</h4>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-sm-6">
-                        <h4 class="lead">Data</h4>
-                        <input type="date" class="form-control">
-                    </div>
-                </div><!--fim form-group-->
-            </section>
-            <section>
-                <p class="text-center h3">Características do ambiente</p>
-                
-                <div class="form-group">
-                    <h4 class="lead">Ambiente</h4>
-                    <select name="caracteristicasAmbiente[]" id="caracteristicasAmbiente" class="form-control selectpicker" multiple="true" data-live-search="true">
-                        <option disabled>Selecione a(s) característica(s)</option>
-                        <option value="Sala">Sala</option>
-                        <option value="Galpão">Galpão</option>
-                        <option value="Outro">Outro</option>
-                    </select>
-                    <div id="inputOutro"></div>
-                </div>
-
-                <h4 class="lead">Pé direito</h4>
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <select name="peDireito[]" id="peDireito" class="form-control selectpicker " multiple="true" data-live-search="true">
-                            <option disabled>Selecione a altura</option>
-                            <option value="2.5">2,5 m</option>
-                            <option value="3.0">3.0 m</option>
-                            <option value="Outro">Outro</option>
-                        </select>
-                    </div>
-                    <div id="inputPeDireito" class="col-sm-6"></div>
-                </div>
-
-                <h4 class="lead">Paredes</h4>
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <select name="paredes[]" id="paredes" class="form-control selectpicker" multiple="true" data-live-search="true">
-                            <option disabled>Selecione o tipo</option>
-                            <option value="Alvenaria">Alvenaria</option>
-                            <option value="Azulejo">Azulejo</option>
-                            <option value="Outro">Outro</option>
-                        </select>
-                    </div>
-                    <div id="inputParedes" class="col-sm-6"></div>
-                </div>
-
-                <h4 class="lead">Piso</h4>
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <select name="piso[]" id="piso" class="form-control selectpicker" multiple="true" data-live-search="true">
-                            <option disabled>Selecione o tipo</option>
-                            <option value="Carpete">Carpete</option>
-                            <option value="Cerâmica">Cerâmica</option>
-                            <option value="Outro">Outro</option>
-                        </select>
-                    </div>
-                    <div id="inputPiso" class="col-sm-6"></div>
-                </div>
-
-                <h4 class="lead">Cobertura</h4>
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <select name="cobertura[]" id="cobertura" class="form-control selectpicker" multiple="true" data-live-search="true">
-                            <option disabled>Selecione o tipo</option>
-                            <option value="Forro madeira">Forro madeira</option>
-                            <option value="Forro PVC">Forro PVC</option>
-                            <option value="Outro">Outro</option>
-                        </select>
-                    </div>
-                    <div id="inputCobertura" class="col-sm-6"></div>
-                </div>
-                
-                <h4 class="lead">Ventilação</h4>
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <select name="ventilacao[]" id="ventilacao" class="form-control selectpicker" multiple="true" data-live-search="true">
-                            <option disabled>Selecione o tipo</option>
-                            <option value="Artificial">Artificial</option>
-                            <option value="Natural">Natural</option>
-                            <option value="Outro">Outro</option>
-                        </select>
-                    </div>
-                    <div id="inputVentilacao" class="col-sm-6"></div>
-                </div>
-                
-                <h4 class="lead">Iluminação</h4>
-                <div class="form-group">
+                <fieldset class="border p-2">
+                    <legend class="w-auto">Dados da empresa</legend>
                     <div>
-                        <select name="iluminacao[]" id="iluminacao" class="form-control selectpicker" multiple="true" data-live-search="true">
-                            <option disabled>Selecione o tipo</option>
-                            <option value="Artificial">Artificial</option>
-                            <option value="Natural">Natural</option>
-                        </select>
+                        <h4 class="lead">Empresa</h4>
+                        <input type="text" class="form-control">
                     </div>
-                </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <h4 class="lead">Setor / GHE</h4>
+                            <input type="text" class="form-control">
+                        </div>
+    
+                        <div class="col-sm-6">
+                            <h4 class="lead">Funções Expostas</h4>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-6">
+                            <h4 class="lead">Técnico</h4>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-6">
+                            <h4 class="lead">Data</h4>
+                            <input type="date" class="form-control">
+                        </div>
+                    </div><!--fim form-group-->
+                </fieldset>
             </section>
 
             <section>
-                <p class="text-center h3">Riscos e perigos</p>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <thead class="thead-dark">
-                          <tr><th colspan="3" class="text-center lead">Risco Físico</th></tr>  
-                          <tr>
-                            <th scope="col" class="text-center ">Riscos/Perigos</th>
-                            <th scope="col" class="text-center">Fontes</th>
-                            <th scope="col" class="text-center epi">EPI</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td class="risco">
-                                <label for="">
-                                    <input type="checkbox" name="" class="checkRisco"> Calor
-                                </label>
-                            </td>
-                            <td><textarea name="" disabled class="fontes"></textarea></td>
-                            <td>
-                                <select name="" class="selectClass">
-                                    <option value=""></option>
-                                    <option value="">A</option>
-                                    <option value="">B</option>
-                                    <option value="">C</option>
-                                </select>
-                                <span class="spanEPI"></span>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="risco">
-                                <label for="">
-                                    <input type="checkbox" name="" class="checkRisco"> Ruído
-                                </label>
-                            </td>
-                            <td><textarea name="" class="fontes" disabled></textarea></td>
-                            <td>
-                                <select name="" class="selectClass">
-                                    <option value=""></option>
-                                    <option value="">A</option>
-                                    <option value="">B</option>
-                                    <option value="">C</option>
-                                </select>
-                                <span class="spanEPI"></span>
-                            </td>
-                          </tr>
-                          <tr>                          
-                            <td class="risco">
-                                <label for="">
-                                    <input type="checkbox" name="" class="checkRisco"> Radiação não-ionizante
-                                </label>
-                            </td>
-                            <td><textarea name="" class="fontes" disabled></textarea></td>
-                            <td>
-                                <select name="" class="selectClass">
-                                    <option value=""></option>
-                                    <option value="">A</option>
-                                    <option value="">B</option>
-                                    <option value="">C</option>
-                                </select>
-                                <span class="spanEPI"></span>
-                            </td>
-                          </tr>
-                          <tr>                          
-                            <td class="risco">
-                                <label for="">
-                                    <input type="checkbox" name="" class="checkRisco"> Radiação ionizante
-                                </label>
-                            </td>
-                            <td><textarea name="" class="fontes" disabled></textarea></td>
-                            <td>
-                                <select name="" class="selectClass">
-                                    <option value=""></option>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                </select>
-                                <span class="spanEPI"></span>
-                            </td>
-                          </tr>
-                          <tr>                          
-                            <td class="risco">
-                                <label for="">
-                                    <input type="checkbox" name="" class="checkRisco"> Vibração de mãos e braços
-                                </label>
-                            </td>
-                            <td><textarea name="" class="fontes" disabled></textarea></td>
-                            <td>
-                                <select name="" id="">
-                                    <option value=""></option>
-                                    <option value="">A</option>
-                                    <option value="">B</option>
-                                    <option value="">C</option>
-                                </select>
-                                <span class="spanEPI"></span>
-                            </td>
-                          </tr>
-                        </tbody>
-                    </table> 
-                </div>
+                <fieldset class="border p-2">
+                    <legend class="w-auto">Características do ambiente</legend>
+                    <div class="form-group">
+                        <h4 class="lead">Ambiente</h4>
+                        <select name="caracteristicasAmbiente[]" id="caracteristicasAmbiente" class="form-control selectpicker" multiple="true" data-live-search="true">
+                            <option disabled>Selecione a(s) característica(s)</option>
+                            <option value="Sala">Sala</option>
+                            <option value="Galpão">Galpão</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                        <div id="inputOutro"></div>
+                    </div>
+    
+                    <h4 class="lead">Pé direito</h4>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <select name="peDireito[]" id="peDireito" class="form-control selectpicker " multiple="true" data-live-search="true">
+                                <option disabled>Selecione a altura</option>
+                                <option value="2.5">2,5 m</option>
+                                <option value="3.0">3.0 m</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                        </div>
+                        <div id="inputPeDireito" class="col-sm-6"></div>
+                    </div>
+    
+                    <h4 class="lead">Paredes</h4>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <select name="paredes[]" id="paredes" class="form-control selectpicker" multiple="true" data-live-search="true">
+                                <option disabled>Selecione o tipo</option>
+                                <option value="Alvenaria">Alvenaria</option>
+                                <option value="Azulejo">Azulejo</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                        </div>
+                        <div id="inputParedes" class="col-sm-6"></div>
+                    </div>
+    
+                    <h4 class="lead">Piso</h4>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <select name="piso[]" id="piso" class="form-control selectpicker" multiple="true" data-live-search="true">
+                                <option disabled>Selecione o tipo</option>
+                                <option value="Carpete">Carpete</option>
+                                <option value="Cerâmica">Cerâmica</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                        </div>
+                        <div id="inputPiso" class="col-sm-6"></div>
+                    </div>
+    
+                    <h4 class="lead">Cobertura</h4>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <select name="cobertura[]" id="cobertura" class="form-control selectpicker" multiple="true" data-live-search="true">
+                                <option disabled>Selecione o tipo</option>
+                                <option value="Forro madeira">Forro madeira</option>
+                                <option value="Forro PVC">Forro PVC</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                        </div>
+                        <div id="inputCobertura" class="col-sm-6"></div>
+                    </div>
+                    
+                    <h4 class="lead">Ventilação</h4>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <select name="ventilacao[]" id="ventilacao" class="form-control selectpicker" multiple="true" data-live-search="true">
+                                <option disabled>Selecione o tipo</option>
+                                <option value="Artificial">Artificial</option>
+                                <option value="Natural">Natural</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                        </div>
+                        <div id="inputVentilacao" class="col-sm-6"></div>
+                    </div>
+                    
+                    <h4 class="lead">Iluminação</h4>
+                    <div class="form-group">
+                        <div>
+                            <select name="iluminacao[]" id="iluminacao" class="form-control selectpicker" multiple="true" data-live-search="true">
+                                <option disabled>Selecione o tipo</option>
+                                <option value="Artificial">Artificial</option>
+                                <option value="Natural">Natural</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>                     
             </section>
+
+            <section>
+                <fieldset class="border p-2">
+                    <legend class="w-auto">Riscos e Perigos</legend>
+                    <!--Tabela de Riscos físicos-->
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="thead-dark" >
+                              <tr id="tituloRiscoFisico"><th colspan="3" class="text-center">Risco Físico</th></tr>  
+                              <tr>
+                                <th scope="col" class="text-center lead">Riscos/Perigos</th>
+                                <th scope="col" class="text-center lead">Fontes</th>
+                                <th scope="col" class="text-center epi lead">EPI</th>
+                              </tr>
+                            </thead>
+                            <tbody id="tabelaRiscosFisicos">
+                              <tr>
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Calor
+                                    </label>
+                                </td>
+                                <td><textarea name="" disabled class="fontes"></textarea></td>
+                                <td>
+                                    <!--Calor-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Ruído
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--Ruído-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              <tr>                          
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Radiação não-ionizante
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--Radiação não ionizante-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              <tr>                          
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Radiação ionizante
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--Radiação ionizante-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              <tr>                          
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Vibração de mãos e braços
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--VMB-->
+                                    <select name="" id="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              <tr>                          
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Vibração de corpo inteiro
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--VCI-->
+                                    <select name="" id="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table> 
+                    </div><!--Fim riscos físicos-->
+    
+                    <!--Tabela Riscos químicos-->
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="thead-dark" >
+                              <tr id="tituloRiscoQuimico"><th colspan="3" class="text-center">Risco Químico</th></tr>  
+                              <tr>
+                                <th scope="col" class="text-center lead">Riscos/Perigos</th>
+                                <th scope="col" class="text-center lead">Fontes</th>
+                                <th scope="col" class="text-center epi lead">EPI</th>
+                              </tr>
+                            </thead>
+                            <tbody id="tabelaRiscosQuimicos">
+                              <tr>
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Fumos metálicos
+                                    </label>
+                                </td>
+                                <td><textarea name="" disabled class="fontes"></textarea></td>
+                                <td>
+                                    <!--Fumos metálicos-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Poeiras minerais
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--Poeiras minerais-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              <tr>                          
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Poeiras metálicas
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--Poeiras metálicas-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              <tr>                          
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Produtos domissanitários
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--Produtos domissanitários-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              <tr>                          
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Substâncias químicas
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--Substâncias químicas-->
+                                    <select name="" id="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              
+                            </tbody>
+                        </table> 
+                    </div><!--Fim riscos químicos-->
+    
+                    <!--Tabela Riscos biológicos-->
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="thead-dark" >
+                              <tr id="tituloRiscoBiologico"><th colspan="3" class="text-center">Risco Biológico</th></tr>  
+                              <tr>
+                                <th scope="col" class="text-center lead">Riscos/Perigos</th>
+                                <th scope="col" class="text-center lead">Fontes</th>
+                                <th scope="col" class="text-center epi lead">EPI</th>
+                              </tr>
+                            </thead>
+                            <tbody id="tabelaRiscosBiologicos">
+                              <tr>
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Bactérias
+                                    </label>
+                                </td>
+                                <td><textarea name="" disabled class="fontes"></textarea></td>
+                                <td>
+                                    <!--Bactérias-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Protozoários
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--Protozoários-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              <tr>                          
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Vírus
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--Vírus-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table> 
+                    </div><!--Fim riscos biológicos-->
+    
+                    <!--Tabela Riscos Ergonômicos-->
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="thead-dark" >
+                              <tr id="tituloRiscoErgonomico"><th colspan="3" class="text-center">Risco Ergonômico</th></tr>  
+                              <tr>
+                                <th scope="col" class="text-center lead">Riscos/Perigos</th>
+                                <th scope="col" class="text-center lead">Fontes</th>
+                                <th scope="col" class="text-center epi lead">Medida de controle</th>
+                              </tr>
+                            </thead>
+                            <tbody id="tabelaRiscosErgonomicos">
+                              <tr>
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Postura inadequada
+                                    </label>
+                                </td>
+                                <td><textarea name="" disabled class="fontes"></textarea></td>
+                                <td>
+                                    <!--Postura inadequada-->
+                                    <textarea name="" class="fontes"></textarea>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Carregamento manual de peso
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--Carregamento manual de peso-->
+                                    <textarea name="" class="fontes"></textarea>
+                                </td>
+                              </tr>
+                              <tr>                          
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Repetitividade
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--Repetitividade-->
+                                    <textarea name="" class="fontes" dis></textarea>
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table> 
+                    </div><!--Fim riscos ergonômicos-->
+    
+                    <!--Tabela Riscos Acidentes-->
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+                              <tr id="tituloRiscoAcidente"><th colspan="3" class="text-center">Risco de Acidente</th></tr>  
+                              <tr>
+                                <th scope="col" class="text-center lead">Riscos/Perigos</th>
+                                <th scope="col" class="text-center lead">Fontes</th>
+                                <th scope="col" class="text-center epi lead">EPI</th>
+                              </tr>
+                            </thead>
+                            <tbody id="tabelaRiscosAcidentes">
+                              <tr>
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Incêndio/Explosão
+                                    </label>
+                                </td>
+                                <td><textarea name="" disabled class="fontes"></textarea></td>
+                                <td>
+                                    <!--Incêndio/Explosão-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Colisão
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--Colisão-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              <tr>                          
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Corte
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--Corte-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              <tr>                          
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Prensagem de membros
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--Prensagem de membros-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              <tr>                          
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Projeção de particulas
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--Projeção de particulas-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              <tr>                          
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Queda de materiais              
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--Queda de materiais-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              <tr>                          
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Queda de mesmo nível               
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--Queda de mesmo nível-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              <tr>                          
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Queda com diferença de nível               
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--Queda com diferença de nível-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                              <tr>                          
+                                <td class="risco">
+                                    <label for="">
+                                        <input type="checkbox" name="" class="checkRisco"> Atividade periculosa com moto               
+                                    </label>
+                                </td>
+                                <td><textarea name="" class="fontes" disabled></textarea></td>
+                                <td>
+                                    <!--Atividade periculosa com moto-->
+                                    <select name="" class="selectClass" onchange="mostraCA()">
+                                        <option value=""></option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                    <span class="spanEPI"></span>
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table> 
+                    </div><!--Fim riscos ergonômicos-->
+                </fieldset>               
+            </section><!--Fim riscos / perigos-->
         </form>
+        <button type="button" class="btn btn-success btn-primary btn-lg btn-block">Enviar</button>
     </div>
     <script src="script.js"></script>
 
