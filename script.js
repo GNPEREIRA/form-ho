@@ -123,7 +123,55 @@ $(document).ready(function() {
   });
 });
 
+//Adiciona uma nova linha para inclusão de substancia química
+function adicionarSubstancia(){
+  let risco = document.getElementById('risco')
+  let fonte = document.getElementById('fonte')
+  let epi = document.getElementById('epi')
 
+  let varRisco = risco.value.trim()
+  let varFonte = fonte.value.trim()
+  let varEpi = epi.value.trim()
+  
+  if(varRisco === '' || varFonte === '' || varEpi === ''){
+    alert('Informe os dados antes de adicionar')   
+    
+  }else{
 
+    //cria uma nova linha tr
+    const linha = quimicos.insertRow(7)
+    
+    
+    //adiciona células td à linha
+    let celulaRisco = linha.insertCell(0)
+    let celulaFonte = linha.insertCell(1)
+    let celulaEpi = linha.insertCell(2)
+    const celulaAcao = linha.insertCell(3)
+  
+    //preenche as células com os valores digitados
+    celulaRisco.textContent = varRisco
+    celulaFonte.textContent = varFonte
+    celulaEpi.textContent = varEpi
+  
+     // Cria o botão de deletar
+     const btnDelete = document.createElement('button');
+     btnDelete.textContent = 'Remover';
+     btnDelete.classList.add('btn', 'btn-danger'); // Adiciona classes para estilização
+     btnDelete.addEventListener('click', function (event) {
+         event.preventDefault(); // Previne o recarregamento da página
+         quimicos.deleteRow(linha.rowIndex); // Remove a linha
+     })
+  
+    celulaAcao.appendChild(btnDelete)
+  
+    //limpa os campos de entrada
+    risco.value = ''
+    fonte.value = ''
+    epi.value = ''
+  }
+  
+}
 
+ 
+ 
 

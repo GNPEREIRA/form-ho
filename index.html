@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
 
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!--Efeitos tabelas-->
@@ -270,7 +272,7 @@
     
                     <!--Tabela Riscos químicos-->
                     <div class="table-responsive">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" id="quimicos">
                             <thead class="thead-dark" >
                               <tr id="tituloRiscoQuimico"><th colspan="3" class="text-center">Risco Químico</th></tr>  
                               <tr>
@@ -370,10 +372,19 @@
                                     <span class="spanEPI"></span>
                                 </td>
                               </tr>
-                              
+                              <tr>
+                                <td><textarea name="" id="risco" cols="30" placeholder="Nova substância"></textarea></td>
+                                <td><textarea name="" class="fontes" placeholder="Descreva a fonte" id="fonte"></textarea></td>
+                                <td><textarea name="" class="fontes" placeholder="Descreva o EPI/EPC" id="epi"></textarea></td>
+                              </tr>
+                              <tr>
+                                <td colspan="3">
+                                    <button type="button" class="btn btn-danger btn-primary btn-lg btn-block" id="addSubs" onclick="adicionarSubstancia()">Adicionar Substância</button>
+                                </td>
+                              </tr>
+                          </div><!--Fim riscos químicos-->
                             </tbody>
                         </table> 
-                    </div><!--Fim riscos químicos-->
     
                     <!--Tabela Riscos biológicos-->
                     <div class="table-responsive">
@@ -673,7 +684,7 @@
                               </tr>
                             </tbody>
                         </table> 
-                    </div><!--Fim riscos ergonômicos-->
+                    </div><!--Fim riscos Acidentes-->
                 </fieldset>               
             </section><!--Fim riscos / perigos-->
         </form>
